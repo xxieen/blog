@@ -1,0 +1,79 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "/blog/posts/vim-essentials-cheatsheet",
+			"dest": "/blog/posts/vim-essentials-cheatsheet/"
+		},
+		{
+			"src": "/blog/posts/vim-essentials-cheatsheet/",
+			"status": 308,
+			"headers": {
+				"Location": "/blog/posts/vim-essentials-cheatsheet"
+			}
+		},
+		{
+			"src": "/blog/posts/yabai-setup",
+			"dest": "/blog/posts/yabai-setup/"
+		},
+		{
+			"src": "/blog/posts/yabai-setup/",
+			"status": 308,
+			"headers": {
+				"Location": "/blog/posts/yabai-setup"
+			}
+		},
+		{
+			"src": "/blog/posts/tmux-setup",
+			"dest": "/blog/posts/tmux-setup/"
+		},
+		{
+			"src": "/blog/posts/tmux-setup/",
+			"status": 308,
+			"headers": {
+				"Location": "/blog/posts/tmux-setup"
+			}
+		},
+		{
+			"src": "/blog/posts/terminal-setup",
+			"dest": "/blog/posts/terminal-setup/"
+		},
+		{
+			"src": "/blog/posts/terminal-setup/",
+			"status": 308,
+			"headers": {
+				"Location": "/blog/posts/terminal-setup"
+			}
+		},
+		{
+			"src": "/_app/immutable/.+",
+			"headers": {
+				"cache-control": "public, immutable, max-age=31536000"
+			}
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "/.*",
+			"dest": "/fn"
+		}
+	],
+	"overrides": {
+		"index.html": {
+			"path": ""
+		},
+		"blog/posts/vim-essentials-cheatsheet.html": {
+			"path": "blog/posts/vim-essentials-cheatsheet"
+		},
+		"blog/posts/yabai-setup.html": {
+			"path": "blog/posts/yabai-setup"
+		},
+		"blog/posts/tmux-setup.html": {
+			"path": "blog/posts/tmux-setup"
+		},
+		"blog/posts/terminal-setup.html": {
+			"path": "blog/posts/terminal-setup"
+		}
+	}
+}
