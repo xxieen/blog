@@ -15,7 +15,7 @@
     class="flex items-center justify-between max-w-5xl
     mx-auto px-4 h-24"
   >
-    <a href="/"> <Logo class="w-28 h-28" /> </a>
+    <a href="/"> <Logo class="w-40 h-40" /> </a>
 
     <div class="flex space-x-1 items-center">
       <DarkmodeButton />
