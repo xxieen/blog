@@ -1,12 +1,12 @@
 ---
-title: "How To Setup Your Mac Terminal"
+title: "就是试试罢了没什么😐"
 imgUrl: "/post-images/terminal-setup.jpg"
 youtubeId: "CF1tMjvHDRA"
-publishedAt: "2022-10-03"
-summary: "This is my supplementary blog post for setting up a terminal window on mac with Oh-My-Zsh and Powerlevel10k. You can use this along with the youtube video to follow along!"
+publishedAt: "2024-7-28"
+summary: "什么鬼啊写一个长一点的summary，这是什么猫猫，⚠️厉害了，还不错，这下有的玩了哈啊哈"
 ---
 
-## Install Homebrew
+## 啊实打实大大说
 
 Open up a terminal window and install homebrew with the following command:
 
@@ -144,6 +144,6 @@ Load these new plugins by running:
 source ~/.zshrc
 ```
 
-## You're Done!
+## You're Done
 
 With that, you're finished and should have a much better terminal experience!
