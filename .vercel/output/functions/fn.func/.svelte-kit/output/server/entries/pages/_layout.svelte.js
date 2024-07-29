@@ -129,7 +129,7 @@ const MainHeader = create_ssr_component(($$result, $$props, $$bindings, slots) =
   return `<header class="fixed inset-x-0 top-0 z-10 border-b bg-white dark:border-gray-800 dark:bg-dark-background"><nav class="mx-auto flex h-24 max-w-5xl items-center justify-between px-4"><a href="/">${validate_component(Logo, "Logo").$$render($$result, { class: "h-40 w-40" }, {}, {})}</a> <div class="flex items-center space-x-1">${validate_component(DarkmodeButton, "DarkmodeButton").$$render($$result, {}, {}, {})} ${validate_component(IconLink, "IconLink").$$render(
     $$result,
     {
-      href: "https://www.youtube.com/@joseanmartinez/featured",
+      href: "https://www.youtube.com/@moomincare",
       target: "_blank"
     },
     {},
@@ -141,7 +141,7 @@ const MainHeader = create_ssr_component(($$result, $$props, $$bindings, slots) =
   )} ${validate_component(IconLink, "IconLink").$$render(
     $$result,
     {
-      href: "https://github.com/josean-dev",
+      href: "https://github.com/xxieen",
       target: "_blank"
     },
     {},

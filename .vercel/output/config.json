@@ -13,17 +13,6 @@
 			}
 		},
 		{
-			"src": "/blog/posts/vim-essentials-cheatsheet",
-			"dest": "/blog/posts/vim-essentials-cheatsheet/"
-		},
-		{
-			"src": "/blog/posts/vim-essentials-cheatsheet/",
-			"status": 308,
-			"headers": {
-				"Location": "/blog/posts/vim-essentials-cheatsheet"
-			}
-		},
-		{
 			"src": "/blog/posts/tmux-setup",
 			"dest": "/blog/posts/tmux-setup/"
 		},
@@ -32,6 +21,28 @@
 			"status": 308,
 			"headers": {
 				"Location": "/blog/posts/tmux-setup"
+			}
+		},
+		{
+			"src": "/blog/posts/const",
+			"dest": "/blog/posts/const/"
+		},
+		{
+			"src": "/blog/posts/const/",
+			"status": 308,
+			"headers": {
+				"Location": "/blog/posts/const"
+			}
+		},
+		{
+			"src": "/blog/posts/vim-essentials-cheatsheet",
+			"dest": "/blog/posts/vim-essentials-cheatsheet/"
+		},
+		{
+			"src": "/blog/posts/vim-essentials-cheatsheet/",
+			"status": 308,
+			"headers": {
+				"Location": "/blog/posts/vim-essentials-cheatsheet"
 			}
 		},
 		{
@@ -55,11 +66,14 @@
 		"blog/posts/terminal-setup.html": {
 			"path": "blog/posts/terminal-setup"
 		},
-		"blog/posts/vim-essentials-cheatsheet.html": {
-			"path": "blog/posts/vim-essentials-cheatsheet"
-		},
 		"blog/posts/tmux-setup.html": {
 			"path": "blog/posts/tmux-setup"
+		},
+		"blog/posts/const.html": {
+			"path": "blog/posts/const"
+		},
+		"blog/posts/vim-essentials-cheatsheet.html": {
+			"path": "blog/posts/vim-essentials-cheatsheet"
 		}
 	}
 }
