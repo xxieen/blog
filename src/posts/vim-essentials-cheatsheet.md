@@ -1,14 +1,12 @@
 ---
-title: "Vim Essentials Cheatsheet & Guide"
+title: "Vim 基础命令速查表与指南"
 imgUrl: "/post-images/vim-essentials-cheatsheet.jpg"
-youtubeId: "80mWp6H4zEw"
-publishedAt: "2023-08-05"
-summary: "This is my Vim cheatsheet with all of the most essential commands! You can check out my youtube video for a complete guide on how almost all of these work and how I go about remembering them."
+# youtubeId: "80mWp6H4zEw"
+publishedAt: "2024-07-26"
+summary: "这是我整理的 Vim 快捷命令速查表，包含了所有最基本的命令！"
 ---
 
-This is my Vim cheatsheet with all of the most essential commands! You can check out my
-youtube video for a complete guide on how almost all of these work and how
-I go about remembering them.
+这是我的 Vim 备忘单，包含了所有最基本的命令！
 
 # Changing Vim Modes
 
@@ -63,7 +61,7 @@ I go about remembering them.
 
 ## Word Movements
 
-#### Definitions:
+#### Definitions
 
 - **word**: Sequence of letters, digits and underscores OR sequence of other symbols, separated by whitespace. Use `:h word` to learn more.
 - **WORD**: Any sequence of non-blank characters (any symbols, letters, digits, etc...), separated by whitespace. Use `:h WORD` to learn more.
@@ -92,7 +90,7 @@ I go about remembering them.
 
 ## Paragraph Movements
 
-#### Definitions:
+#### Definitions
 
 - **paragraph**: Blocks of consecutive non-empty lines. NOTE: Line with white space is not empty. Use `:h paragraph` to learn more.
 
@@ -191,11 +189,11 @@ _Now that you know how to move within Vim, editing text will go hand in hand wit
 
 ## Deletion
 
-| Command      | Description                                                                    |
-| ------------ | ------------------------------------------------------------------------------ |
-| `d{motion} ` | Delete the text that the `{motion}` command moves over and copy into register. |
-| `dd`         | Delete whole current line and copy into register.                              |
-| `D`          | Delete from under the cursor to the end of the line and copy into register.    |
+| Command     | Description                                                                    |
+| ----------- | ------------------------------------------------------------------------------ |
+| `d{motion}` | Delete the text that the `{motion}` command moves over and copy into register. |
+| `dd`        | Delete whole current line and copy into register.                              |
+| `D`         | Delete from under the cursor to the end of the line and copy into register.    |
 
 **Tip**: You can also use a `{number}` before these commands to execute the deletion that `{number}` of times.
 
@@ -224,11 +222,11 @@ _The possible combinations are endless..._
 
 **Note**: Executing a change command with `c` is pretty much the same as `d` except that it takes you into insert mode afterwards.
 
-| Command      | Description                                                                                       |
-| ------------ | ------------------------------------------------------------------------------------------------- |
-| `c{motion} ` | Delete the text that the `{motion}` command moves over, copy into register and enter insert mode. |
-| `cc`         | Delete whole current line, copy into register and enter insert mode.                              |
-| `C`          | Delete from under the cursor to the end of the line, copy into register and enter insert mode.    |
+| Command     | Description                                                                                       |
+| ----------- | ------------------------------------------------------------------------------------------------- |
+| `c{motion}` | Delete the text that the `{motion}` command moves over, copy into register and enter insert mode. |
+| `cc`        | Delete whole current line, copy into register and enter insert mode.                              |
+| `C`         | Delete from under the cursor to the end of the line, copy into register and enter insert mode.    |
 
 Examples would be the same as with delete but changing `c` to `d`.
 

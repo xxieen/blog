@@ -1,12 +1,12 @@
 ---
 title: "就是试试罢了没什么😐"
 imgUrl: "/post-images/terminal-setup.jpg"
-youtubeId: "CF1tMjvHDRA"
+# youtubeId: "CF1tMjvHDRA"
 publishedAt: "2024-7-28"
-summary: "什么鬼啊写一个长一点的summary，这是什么猫猫，⚠️厉害了，还不错，这下有的玩了哈啊哈"
+summary: "什么，这是什么猫猫，⚠️厉害了"
 ---
 
-## 啊实打实大大说
+## 第一步
 
 Open up a terminal window and install homebrew with the following command:
 
