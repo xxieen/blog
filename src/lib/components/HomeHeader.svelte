@@ -8,17 +8,15 @@
   </div>
 
   <div class="py-4 space-y-2">
-    <h2 class="text-4xl font-bold">
-      Hey! I'm Josean Martinez.
-    </h2>
+    <h2 class="text-4xl font-bold">Hey! I'm Xieen.</h2>
     <p class="text-2xl font-light">
-      I'm a full stack software engineer passionate about
-      web development, Neovim, custom built mechanical
-      keyboards, and sharing what I know.
+      我是一个兴趣广泛，什么都想学一点，什么都学不好的程序员🧑‍💻
     </p>
     <p class="text-2xl font-thin">
-      You can find me on my youtube channel and I also like
-      to blog here to supplement the videos I make!
+      这里记录着我的blog，记录生活、学习、所想所感。
+    </p>
+    <p class="text-1xl font-thin">
+      #cpp #svelte #algorithm #neovim
     </p>
   </div>
 </section>
