@@ -1,38 +1,87 @@
-import { c as create_ssr_component, a as add_attribute, b as subscribe, v as validate_component } from "../../chunks/ssr.js";
+import {
+  c as create_ssr_component,
+  a as add_attribute,
+  b as subscribe,
+  v as validate_component
+} from "../../chunks/ssr.js";
 import { w as writable } from "../../chunks/index2.js";
 const darkmode = writable(false);
-const MoonIcon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let { class: klass = "" } = $$props;
-  if ($$props.class === void 0 && $$bindings.class && klass !== void 0) $$bindings.class(klass);
-  return `<svg${add_attribute("class", klass, 0)} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24"><path d="M3.722 3.193L3.226 4.528c-.12.323-.375.578-.698.698L1.193 5.722c-.257.096-.257.46 0 .555l1.335.496c.323.12.578.375.698.698l.496 1.335c.096.257.46.257.555 0l.496-1.335c.12-.323.375-.578.698-.698l1.335-.496c.257-.096.257-.46 0-.555L5.472 5.226c-.323-.12-.578-.375-.698-.698L4.278 3.193C4.182 2.936 3.818 2.936 3.722 3.193zM20.916 12.994c.603.006 1.091.516 1.008 1.113-.232 1.662-.986 3.267-2.263 4.553-3.13 3.12-8.19 3.12-11.32 0-3.12-3.13-3.12-8.19 0-11.32 1.285-1.277 2.891-2.032 4.553-2.263C13.49 4.993 14 5.481 14.006 6.084c.017 1.765.7 3.521 2.044 4.866C17.394 12.294 19.151 12.977 20.916 12.994z"></path></svg>`;
-});
-const SunIcon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let { class: klass = "" } = $$props;
-  if ($$props.class === void 0 && $$bindings.class && klass !== void 0) $$bindings.class(klass);
-  return `<svg${add_attribute("class", klass, 0)} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24"><path d="M 12 0 C 11.4 0 11 0.4 11 1 L 11 2 C 11 2.6 11.4 3 12 3 C 12.6 3 13 2.6 13 2 L 13 1 C 13 0.4 12.6 0 12 0 z M 4.1992188 3.1992188 C 3.9492188 3.1992187 3.7 3.3 3.5 3.5 C 3.1 3.9 3.1 4.5003906 3.5 4.9003906 L 4.1992188 5.5996094 C 4.5992187 5.9996094 5.1996094 5.9996094 5.5996094 5.5996094 C 5.9996094 5.1996094 5.9996094 4.5992188 5.5996094 4.1992188 L 4.9003906 3.5 C 4.7003906 3.3 4.4492188 3.1992188 4.1992188 3.1992188 z M 19.800781 3.1992188 C 19.550781 3.1992188 19.299609 3.3 19.099609 3.5 L 18.400391 4.1992188 C 18.000391 4.5992187 18.000391 5.1996094 18.400391 5.5996094 C 18.800391 5.9996094 19.400781 5.9996094 19.800781 5.5996094 L 20.5 4.9003906 C 20.9 4.5003906 20.9 3.9 20.5 3.5 C 20.3 3.3 20.050781 3.1992188 19.800781 3.1992188 z M 12 5 A 7 7 0 0 0 5 12 A 7 7 0 0 0 12 19 A 7 7 0 0 0 19 12 A 7 7 0 0 0 12 5 z M 1 11 C 0.4 11 0 11.4 0 12 C 0 12.6 0.4 13 1 13 L 2 13 C 2.6 13 3 12.6 3 12 C 3 11.4 2.6 11 2 11 L 1 11 z M 22 11 C 21.4 11 21 11.4 21 12 C 21 12.6 21.4 13 22 13 L 23 13 C 23.6 13 24 12.6 24 12 C 24 11.4 23.6 11 23 11 L 22 11 z M 4.9003906 18.099609 C 4.6503906 18.099609 4.3992188 18.200391 4.1992188 18.400391 L 3.5 19.099609 C 3.1 19.499609 3.1 20.1 3.5 20.5 C 3.9 20.9 4.5003906 20.9 4.9003906 20.5 L 5.5996094 19.800781 C 5.9996094 19.400781 5.9996094 18.800391 5.5996094 18.400391 C 5.3996094 18.200391 5.1503906 18.099609 4.9003906 18.099609 z M 19.099609 18.099609 C 18.849609 18.099609 18.600391 18.200391 18.400391 18.400391 C 18.000391 18.800391 18.000391 19.400781 18.400391 19.800781 L 19.099609 20.5 C 19.499609 20.9 20.1 20.9 20.5 20.5 C 20.9 20.1 20.9 19.499609 20.5 19.099609 L 19.800781 18.400391 C 19.600781 18.200391 19.349609 18.099609 19.099609 18.099609 z M 12 21 C 11.4 21 11 21.4 11 22 L 11 23 C 11 23.6 11.4 24 12 24 C 12.6 24 13 23.6 13 23 L 13 22 C 13 21.4 12.6 21 12 21 z"></path></svg>`;
-});
-const DarkmodeButton = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let $darkmode, $$unsubscribe_darkmode;
-  $$unsubscribe_darkmode = subscribe(darkmode, (value) => $darkmode = value);
-  $$unsubscribe_darkmode();
-  return `<button class="p-2 text-purple-800 dark:text-yellow-200">${$darkmode ? `<div>${validate_component(SunIcon, "SunIcon").$$render($$result, { class: "w-8 h-8 fill-current" }, {}, {})}</div>` : `<div>${validate_component(MoonIcon, "MoonIcon").$$render($$result, { class: "w-8 h-8 fill-current" }, {}, {})}</div>`}</button>`;
-});
-const IconLink = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let { href } = $$props;
-  let { target = "_self" } = $$props;
-  if ($$props.href === void 0 && $$bindings.href && href !== void 0) $$bindings.href(href);
-  if ($$props.target === void 0 && $$bindings.target && target !== void 0) $$bindings.target(target);
-  return `<a class="p-2 rounded-lg text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-800"${add_attribute("href", href, 0)}${add_attribute("target", target, 0)}>${slots.default ? slots.default({}) : ``}</a>`;
-});
-const GithubIcon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let { class: klass = "" } = $$props;
-  if ($$props.class === void 0 && $$bindings.class && klass !== void 0) $$bindings.class(klass);
-  return `<svg${add_attribute("class", klass, 0)} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24"><path d="M10.9,2.1c-4.6,0.5-8.3,4.2-8.8,8.7c-0.5,4.7,2.2,8.9,6.3,10.5C8.7,21.4,9,21.2,9,20.8v-1.6c0,0-0.4,0.1-0.9,0.1 c-1.4,0-2-1.2-2.1-1.9c-0.1-0.4-0.3-0.7-0.6-1C5.1,16.3,5,16.3,5,16.2C5,16,5.3,16,5.4,16c0.6,0,1.1,0.7,1.3,1c0.5,0.8,1.1,1,1.4,1 c0.4,0,0.7-0.1,0.9-0.2c0.1-0.7,0.4-1.4,1-1.8c-2.3-0.5-4-1.8-4-4c0-1.1,0.5-2.2,1.2-3C7.1,8.8,7,8.3,7,7.6c0-0.4,0-0.9,0.2-1.3 C7.2,6.1,7.4,6,7.5,6c0,0,0.1,0,0.1,0C8.1,6.1,9.1,6.4,10,7.3C10.6,7.1,11.3,7,12,7s1.4,0.1,2,0.3c0.9-0.9,2-1.2,2.5-1.3 c0,0,0.1,0,0.1,0c0.2,0,0.3,0.1,0.4,0.3C17,6.7,17,7.2,17,7.6c0,0.8-0.1,1.2-0.2,1.4c0.7,0.8,1.2,1.8,1.2,3c0,2.2-1.7,3.5-4,4 c0.6,0.5,1,1.4,1,2.3v2.6c0,0.3,0.3,0.6,0.7,0.5c3.7-1.5,6.3-5.1,6.3-9.3C22,6.1,16.9,1.4,10.9,2.1z"></path></svg>`;
-});
-const Logo = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let { class: klass = "" } = $$props;
-  if ($$props.class === void 0 && $$bindings.class && klass !== void 0) $$bindings.class(klass);
-  return `<svg${add_attribute("class", klass, 0)} version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 85 50" style="enable-background:new 0 0 85 50;" xml:space="preserve"><style type="text/css">.st0 {
+const MoonIcon = create_ssr_component(
+  ($$result, $$props, $$bindings, slots) => {
+    let { class: klass = "" } = $$props;
+    if (
+      $$props.class === void 0 &&
+      $$bindings.class &&
+      klass !== void 0
+    )
+      $$bindings.class(klass);
+    return `<svg${add_attribute("class", klass, 0)} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24"><path d="M3.722 3.193L3.226 4.528c-.12.323-.375.578-.698.698L1.193 5.722c-.257.096-.257.46 0 .555l1.335.496c.323.12.578.375.698.698l.496 1.335c.096.257.46.257.555 0l.496-1.335c.12-.323.375-.578.698-.698l1.335-.496c.257-.096.257-.46 0-.555L5.472 5.226c-.323-.12-.578-.375-.698-.698L4.278 3.193C4.182 2.936 3.818 2.936 3.722 3.193zM20.916 12.994c.603.006 1.091.516 1.008 1.113-.232 1.662-.986 3.267-2.263 4.553-3.13 3.12-8.19 3.12-11.32 0-3.12-3.13-3.12-8.19 0-11.32 1.285-1.277 2.891-2.032 4.553-2.263C13.49 4.993 14 5.481 14.006 6.084c.017 1.765.7 3.521 2.044 4.866C17.394 12.294 19.151 12.977 20.916 12.994z"></path></svg>`;
+  }
+);
+const SunIcon = create_ssr_component(
+  ($$result, $$props, $$bindings, slots) => {
+    let { class: klass = "" } = $$props;
+    if (
+      $$props.class === void 0 &&
+      $$bindings.class &&
+      klass !== void 0
+    )
+      $$bindings.class(klass);
+    return `<svg${add_attribute("class", klass, 0)} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24"><path d="M 12 0 C 11.4 0 11 0.4 11 1 L 11 2 C 11 2.6 11.4 3 12 3 C 12.6 3 13 2.6 13 2 L 13 1 C 13 0.4 12.6 0 12 0 z M 4.1992188 3.1992188 C 3.9492188 3.1992187 3.7 3.3 3.5 3.5 C 3.1 3.9 3.1 4.5003906 3.5 4.9003906 L 4.1992188 5.5996094 C 4.5992187 5.9996094 5.1996094 5.9996094 5.5996094 5.5996094 C 5.9996094 5.1996094 5.9996094 4.5992188 5.5996094 4.1992188 L 4.9003906 3.5 C 4.7003906 3.3 4.4492188 3.1992188 4.1992188 3.1992188 z M 19.800781 3.1992188 C 19.550781 3.1992188 19.299609 3.3 19.099609 3.5 L 18.400391 4.1992188 C 18.000391 4.5992187 18.000391 5.1996094 18.400391 5.5996094 C 18.800391 5.9996094 19.400781 5.9996094 19.800781 5.5996094 L 20.5 4.9003906 C 20.9 4.5003906 20.9 3.9 20.5 3.5 C 20.3 3.3 20.050781 3.1992188 19.800781 3.1992188 z M 12 5 A 7 7 0 0 0 5 12 A 7 7 0 0 0 12 19 A 7 7 0 0 0 19 12 A 7 7 0 0 0 12 5 z M 1 11 C 0.4 11 0 11.4 0 12 C 0 12.6 0.4 13 1 13 L 2 13 C 2.6 13 3 12.6 3 12 C 3 11.4 2.6 11 2 11 L 1 11 z M 22 11 C 21.4 11 21 11.4 21 12 C 21 12.6 21.4 13 22 13 L 23 13 C 23.6 13 24 12.6 24 12 C 24 11.4 23.6 11 23 11 L 22 11 z M 4.9003906 18.099609 C 4.6503906 18.099609 4.3992188 18.200391 4.1992188 18.400391 L 3.5 19.099609 C 3.1 19.499609 3.1 20.1 3.5 20.5 C 3.9 20.9 4.5003906 20.9 4.9003906 20.5 L 5.5996094 19.800781 C 5.9996094 19.400781 5.9996094 18.800391 5.5996094 18.400391 C 5.3996094 18.200391 5.1503906 18.099609 4.9003906 18.099609 z M 19.099609 18.099609 C 18.849609 18.099609 18.600391 18.200391 18.400391 18.400391 C 18.000391 18.800391 18.000391 19.400781 18.400391 19.800781 L 19.099609 20.5 C 19.499609 20.9 20.1 20.9 20.5 20.5 C 20.9 20.1 20.9 19.499609 20.5 19.099609 L 19.800781 18.400391 C 19.600781 18.200391 19.349609 18.099609 19.099609 18.099609 z M 12 21 C 11.4 21 11 21.4 11 22 L 11 23 C 11 23.6 11.4 24 12 24 C 12.6 24 13 23.6 13 23 L 13 22 C 13 21.4 12.6 21 12 21 z"></path></svg>`;
+  }
+);
+const DarkmodeButton = create_ssr_component(
+  ($$result, $$props, $$bindings, slots) => {
+    let $darkmode, $$unsubscribe_darkmode;
+    $$unsubscribe_darkmode = subscribe(
+      darkmode,
+      (value) => ($darkmode = value)
+    );
+    $$unsubscribe_darkmode();
+    return `<button class="p-2 text-purple-800 dark:text-yellow-200">${$darkmode ? `<div>${validate_component(SunIcon, "SunIcon").$$render($$result, { class: "w-8 h-8 fill-current" }, {}, {})}</div>` : `<div>${validate_component(MoonIcon, "MoonIcon").$$render($$result, { class: "w-8 h-8 fill-current" }, {}, {})}</div>`}</button>`;
+  }
+);
+const IconLink = create_ssr_component(
+  ($$result, $$props, $$bindings, slots) => {
+    let { href } = $$props;
+    let { target = "_self" } = $$props;
+    if (
+      $$props.href === void 0 &&
+      $$bindings.href &&
+      href !== void 0
+    )
+      $$bindings.href(href);
+    if (
+      $$props.target === void 0 &&
+      $$bindings.target &&
+      target !== void 0
+    )
+      $$bindings.target(target);
+    return `<a class="p-2 rounded-lg text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-800"${add_attribute("href", href, 0)}${add_attribute("target", target, 0)}>${slots.default ? slots.default({}) : ``}</a>`;
+  }
+);
+const GithubIcon = create_ssr_component(
+  ($$result, $$props, $$bindings, slots) => {
+    let { class: klass = "" } = $$props;
+    if (
+      $$props.class === void 0 &&
+      $$bindings.class &&
+      klass !== void 0
+    )
+      $$bindings.class(klass);
+    return `<svg${add_attribute("class", klass, 0)} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24"><path d="M10.9,2.1c-4.6,0.5-8.3,4.2-8.8,8.7c-0.5,4.7,2.2,8.9,6.3,10.5C8.7,21.4,9,21.2,9,20.8v-1.6c0,0-0.4,0.1-0.9,0.1 c-1.4,0-2-1.2-2.1-1.9c-0.1-0.4-0.3-0.7-0.6-1C5.1,16.3,5,16.3,5,16.2C5,16,5.3,16,5.4,16c0.6,0,1.1,0.7,1.3,1c0.5,0.8,1.1,1,1.4,1 c0.4,0,0.7-0.1,0.9-0.2c0.1-0.7,0.4-1.4,1-1.8c-2.3-0.5-4-1.8-4-4c0-1.1,0.5-2.2,1.2-3C7.1,8.8,7,8.3,7,7.6c0-0.4,0-0.9,0.2-1.3 C7.2,6.1,7.4,6,7.5,6c0,0,0.1,0,0.1,0C8.1,6.1,9.1,6.4,10,7.3C10.6,7.1,11.3,7,12,7s1.4,0.1,2,0.3c0.9-0.9,2-1.2,2.5-1.3 c0,0,0.1,0,0.1,0c0.2,0,0.3,0.1,0.4,0.3C17,6.7,17,7.2,17,7.6c0,0.8-0.1,1.2-0.2,1.4c0.7,0.8,1.2,1.8,1.2,3c0,2.2-1.7,3.5-4,4 c0.6,0.5,1,1.4,1,2.3v2.6c0,0.3,0.3,0.6,0.7,0.5c3.7-1.5,6.3-5.1,6.3-9.3C22,6.1,16.9,1.4,10.9,2.1z"></path></svg>`;
+  }
+);
+const Logo = create_ssr_component(
+  ($$result, $$props, $$bindings, slots) => {
+    let { class: klass = "" } = $$props;
+    if (
+      $$props.class === void 0 &&
+      $$bindings.class &&
+      klass !== void 0
+    )
+      $$bindings.class(klass);
+    return `<svg${add_attribute("class", klass, 0)} version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 85 50" style="enable-background:new 0 0 85 50;" xml:space="preserve"><style type="text/css">.st0 {
       fill: #8486a6;
     }
     .st1 {
@@ -119,44 +168,62 @@ const Logo = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 	c-0.2,0.2-0.5,0.1-1-0.2c-1.6-1.2-3.2-1.9-3.6-3.4c-0.4-1.5-0.9-4.8,0.1-6.2c0.7,1.5,2.1,3.1,3.2,3C129.9,8,130.7,10.6,130.7,10.6z"></path><path class="st12" d="M116.9,46c0,0,1.1-4.7,0.9-7c-0.2-2.4,0.9,5.7,0.8,6.2c-0.2,0.4,22.2-3,23.4-2.3
 	C140.4,43.4,119.6,45.8,116.9,46L116.9,46L116.9,46z"></path><path class="st12" d="M142.9,42c0.2-0.5,0.9-3.8-0.6-5.6C142.5,37.8,142.9,42,142.9,42z"></path><g><path class="st5" d="M128.6,12.1c0.2,1.3,0.1,2.6-0.7,2.8c-0.9,0.2-2.1-0.7-2.4-2c-0.3-1.3,0.2-2.5,1.1-2.8
 		C127.8,9.7,128.5,10.7,128.6,12.1L128.6,12.1L128.6,12.1z"></path><path class="st13" d="M126.2,11.8c0.3-0.4,1.8-1.1,1.6,1.4c0,0-0.4-0.7-0.6-0.5"></path></g><g><path class="st14" d="M170.9,35.5l-0.7-0.9l-2.3,2.3l1.9,2.6l0.8-0.8l-1.3-1.7L170.9,35.5z"></path><polygon class="st15" points="172.1,39.9 172.1,40 171.8,41.5 170.8,41.3 170.9,40.9 	"></polygon><polygon class="st14" points="173.5,33.1 172.1,39.9 170.9,40.9 170.9,40.8 170.9,40.8 172.4,32.9 	"></polygon><polygon class="st15" points="176.4,37.6 174.1,39.8 173.5,39.1 173.4,38.9 173.4,38.9 175.9,36.9 176.1,37.3 	"></polygon><polygon class="st14" points="173.4,38.9 174.9,37.4 173.6,35.7 174.4,34.9 175.9,36.9 	"></polygon></g></svg>`;
-});
-const YoutubeIcon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let { class: klass = "" } = $$props;
-  if ($$props.class === void 0 && $$bindings.class && klass !== void 0) $$bindings.class(klass);
-  return `<svg${add_attribute("class", klass, 0)} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24"><path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,14.598V9.402c0-0.385,0.417-0.625,0.75-0.433l4.5,2.598c0.333,0.192,0.333,0.674,0,0.866l-4.5,2.598 C10.417,15.224,10,14.983,10,14.598z"></path></svg>`;
-});
-const MainHeader = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `<header class="fixed z-10 top-0 inset-x-0 border-b bg-white dark:bg-dark-background dark:border-gray-800"><nav class="flex items-center justify-between max-w-5xl mx-auto px-4 h-24"><a href="/">${validate_component(Logo, "Logo").$$render($$result, { class: "w-40 h-40" }, {}, {})}</a> <div class="flex space-x-1 items-center">${validate_component(DarkmodeButton, "DarkmodeButton").$$render($$result, {}, {}, {})} ${validate_component(IconLink, "IconLink").$$render(
-    $$result,
-    {
-      href: "https://www.youtube.com/@joseanmartinez/featured",
-      target: "_blank"
-    },
-    {},
-    {
-      default: () => {
-        return `${validate_component(YoutubeIcon, "YoutubeIcon").$$render($$result, { class: "w-8 h-8 fill-current" }, {}, {})}`;
+  }
+);
+const YoutubeIcon = create_ssr_component(
+  ($$result, $$props, $$bindings, slots) => {
+    let { class: klass = "" } = $$props;
+    if (
+      $$props.class === void 0 &&
+      $$bindings.class &&
+      klass !== void 0
+    )
+      $$bindings.class(klass);
+    return `<svg${add_attribute("class", klass, 0)} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24"><path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,14.598V9.402c0-0.385,0.417-0.625,0.75-0.433l4.5,2.598c0.333,0.192,0.333,0.674,0,0.866l-4.5,2.598 C10.417,15.224,10,14.983,10,14.598z"></path></svg>`;
+  }
+);
+const MainHeader = create_ssr_component(
+  ($$result, $$props, $$bindings, slots) => {
+    return `<header class="fixed z-10 top-0 inset-x-0 border-b bg-white dark:bg-dark-background dark:border-gray-800"><nav class="flex items-center justify-between max-w-5xl mx-auto px-4 h-24"><a href="/">${validate_component(Logo, "Logo").$$render($$result, { class: "w-40 h-40" }, {}, {})}</a> <div class="flex space-x-1 items-center">${validate_component(DarkmodeButton, "DarkmodeButton").$$render($$result, {}, {}, {})} ${validate_component(
+      IconLink,
+      "IconLink"
+    ).$$render(
+      $$result,
+      {
+        href: "https://www.youtube.com/@joseanmartinez/featured",
+        target: "_blank"
+      },
+      {},
+      {
+        default: () => {
+          return `${validate_component(YoutubeIcon, "YoutubeIcon").$$render($$result, { class: "w-8 h-8 fill-current" }, {}, {})}`;
+        }
       }
-    }
-  )} ${validate_component(IconLink, "IconLink").$$render(
-    $$result,
-    {
-      href: "https://github.com/josean-dev",
-      target: "_blank"
-    },
-    {},
-    {
-      default: () => {
-        return `${validate_component(GithubIcon, "GithubIcon").$$render($$result, { class: "w-8 h-8 fill-current" }, {}, {})}`;
+    )} ${validate_component(IconLink, "IconLink").$$render(
+      $$result,
+      {
+        href: "https://github.com/josean-dev",
+        target: "_blank"
+      },
+      {},
+      {
+        default: () => {
+          return `${validate_component(GithubIcon, "GithubIcon").$$render($$result, { class: "w-8 h-8 fill-current" }, {}, {})}`;
+        }
       }
-    }
-  )}</div></nav></header>`;
-});
-const ThemeInitializer = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let $$unsubscribe_darkmode;
-  $$unsubscribe_darkmode = subscribe(darkmode, (value) => value);
-  $$unsubscribe_darkmode();
-  return `${$$result.head += `<!-- HEAD_svelte-3wfvcu_START --><script data-svelte-h="svelte-1qrl023">window.prefersDarkmode = false;
+    )}</div></nav></header>`;
+  }
+);
+const ThemeInitializer = create_ssr_component(
+  ($$result, $$props, $$bindings, slots) => {
+    let $$unsubscribe_darkmode;
+    $$unsubscribe_darkmode = subscribe(
+      darkmode,
+      (value) => value
+    );
+    $$unsubscribe_darkmode();
+    return `${
+      (($$result.head += `<!-- HEAD_svelte-3wfvcu_START --><script data-svelte-h="svelte-1qrl023">window.prefersDarkmode = false;
 
     if (
       localStorage.theme === "dark" ||
@@ -168,18 +235,34 @@ const ThemeInitializer = create_ssr_component(($$result, $$props, $$bindings, sl
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
-    }<\/script><!-- HEAD_svelte-3wfvcu_END -->`, ""} ${slots.default ? slots.default({}) : ``}`;
-});
-const Layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let { data } = $$props;
-  if ($$props.data === void 0 && $$bindings.data && data !== void 0) $$bindings.data(data);
-  data.pathname;
-  return `${validate_component(ThemeInitializer, "ThemeInitializer").$$render($$result, {}, {}, {
-    default: () => {
-      return `${validate_component(MainHeader, "MainHeader").$$render($$result, {}, {}, {})} <main class="mx-auto max-w-5xl pt-24">${slots.default ? slots.default({}) : ``}</main>`;
-    }
-  })}`;
-});
-export {
-  Layout as default
-};
+    }<\/script><!-- HEAD_svelte-3wfvcu_END -->`),
+      "")
+    } ${slots.default ? slots.default({}) : ``}`;
+  }
+);
+const Layout = create_ssr_component(
+  ($$result, $$props, $$bindings, slots) => {
+    let { data } = $$props;
+    if (
+      $$props.data === void 0 &&
+      $$bindings.data &&
+      data !== void 0
+    )
+      $$bindings.data(data);
+    data.pathname;
+    return `${validate_component(
+      ThemeInitializer,
+      "ThemeInitializer"
+    ).$$render(
+      $$result,
+      {},
+      {},
+      {
+        default: () => {
+          return `${validate_component(MainHeader, "MainHeader").$$render($$result, {}, {}, {})} <main class="mx-auto max-w-5xl pt-24">${slots.default ? slots.default({}) : ``}</main>`;
+        }
+      }
+    )}`;
+  }
+);
+export { Layout as default };

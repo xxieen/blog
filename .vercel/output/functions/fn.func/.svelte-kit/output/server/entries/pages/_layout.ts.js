@@ -4,7 +4,4 @@ const load = ({ url }) => {
     pathname: url.pathname
   };
 };
-export {
-  load,
-  prerender
-};
+export { load, prerender };

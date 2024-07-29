@@ -12,7 +12,7 @@
 <article>
   <PostHeader {metadata} />
 
-  <div class="prose dark:prose-invert py-4 px-4 max-w-none">
+  <div class="prose max-w-none px-4 py-4 dark:prose-invert">
     <CopyCodeInjector>
       <Post />
     </CopyCodeInjector>

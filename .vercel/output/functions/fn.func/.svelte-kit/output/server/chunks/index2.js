@@ -18,7 +18,11 @@ function writable(value, start = noop) {
           subscriber_queue.push(subscriber, value);
         }
         if (run_queue) {
-          for (let i = 0; i < subscriber_queue.length; i += 2) {
+          for (
+            let i = 0;
+            i < subscriber_queue.length;
+            i += 2
+          ) {
             subscriber_queue[i][0](subscriber_queue[i + 1]);
           }
           subscriber_queue.length = 0;
@@ -46,7 +50,4 @@ function writable(value, start = noop) {
   }
   return { set, update, subscribe };
 }
-export {
-  readable as r,
-  writable as w
-};
+export { readable as r, writable as w };

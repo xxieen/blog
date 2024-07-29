@@ -20,17 +20,15 @@
 <button
   bind:this={copyButton}
   on:click={handleClick}
-  class={`p-1 absolute top-2 right-2 rounded-md
-  shadow-md
-  ${
+  class={`absolute right-2 top-2 rounded-md p-1 shadow-md ${
     showCheckmark
       ? "bg-green-900"
       : "bg-gray-700 hover:bg-gray-600"
   }`}
 >
   {#if showCheckmark}
-    <CheckIcon class="w-6 h-6 fill-green-300" />
+    <CheckIcon class="h-6 w-6 fill-green-300" />
   {:else}
-    <CopyIcon class="w-6 h-6 fill-white" />
+    <CopyIcon class="h-6 w-6 fill-white" />
   {/if}
 </button>

@@ -1,5 +1,5 @@
-<section class="py-6 px-4">
-  <div class="w-40 h-40 rounded-full overflow-hidden">
+<section class="px-4 py-6">
+  <div class="h-40 w-40 overflow-hidden rounded-full">
     <img
       src="/profile-image.jpg"
       alt="Profile"
@@ -7,7 +7,7 @@
     />
   </div>
 
-  <div class="py-4 space-y-2">
+  <div class="space-y-2 py-4">
     <h2 class="text-4xl font-bold">Hey! I'm Xieen.</h2>
     <p class="text-2xl font-light">
       我是一个兴趣广泛，什么都想学一点，什么都学不好的程序员🧑‍💻

@@ -32,11 +32,11 @@
 >
   {#if $darkmode}
     <div in:slide={inTransition} out:slide={outTransition}>
-      <SunIcon class="w-8 h-8 fill-current" />
+      <SunIcon class="h-8 w-8 fill-current" />
     </div>
   {:else}
     <div in:slide={inTransition} out:slide={outTransition}>
-      <MoonIcon class="w-8 h-8 fill-current" />
+      <MoonIcon class="h-8 w-8 fill-current" />
     </div>
   {/if}
 </button>

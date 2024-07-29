@@ -1,5 +1,4 @@
-function noop() {
-}
+function noop() {}
 function run(fn) {
   return fn();
 }
@@ -10,7 +9,11 @@ function run_all(fns) {
   fns.forEach(run);
 }
 function safe_not_equal(a, b) {
-  return a != a ? b == b : a !== b || a && typeof a === "object" || typeof a === "function";
+  return a != a
+    ? b == b
+    : a !== b ||
+        (a && typeof a === "object") ||
+        typeof a === "function";
 }
 function subscribe(store, ...callbacks) {
   if (store == null) {
@@ -20,14 +23,19 @@ function subscribe(store, ...callbacks) {
     return noop;
   }
   const unsub = store.subscribe(...callbacks);
-  return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
+  return unsub.unsubscribe
+    ? () => unsub.unsubscribe()
+    : unsub;
 }
 let current_component;
 function set_current_component(component) {
   current_component = component;
 }
 function get_current_component() {
-  if (!current_component) throw new Error("Function called outside component initialization");
+  if (!current_component)
+    throw new Error(
+      "Function called outside component initialization"
+    );
   return current_component;
 }
 function setContext(key, context) {
@@ -38,7 +46,9 @@ function getContext(key) {
   return get_current_component().$$.context.get(key);
 }
 function ensure_array_like(array_like_or_iterator) {
-  return array_like_or_iterator?.length !== void 0 ? array_like_or_iterator : Array.from(array_like_or_iterator);
+  return array_like_or_iterator?.length !== void 0
+    ? array_like_or_iterator
+    : Array.from(array_like_or_iterator);
 }
 const ATTR_REGEX = /[&"]/g;
 const CONTENT_REGEX = /[&<]/g;
@@ -51,7 +61,13 @@ function escape(value, is_attr = false) {
   while (pattern.test(str)) {
     const i = pattern.lastIndex - 1;
     const ch = str[i];
-    escaped += str.substring(last, i) + (ch === "&" ? "&amp;" : ch === '"' ? "&quot;" : "&lt;");
+    escaped +=
+      str.substring(last, i) +
+      (ch === "&"
+        ? "&amp;"
+        : ch === '"'
+          ? "&quot;"
+          : "&lt;");
     last = i + 1;
   }
   return escaped + str.substring(last);
@@ -78,11 +94,22 @@ function validate_component(component, name) {
 }
 let on_destroy;
 function create_ssr_component(fn) {
-  function $$render(result, props, bindings, slots, context) {
+  function $$render(
+    result,
+    props,
+    bindings,
+    slots,
+    context
+  ) {
     const parent_component = current_component;
     const $$ = {
       on_destroy,
-      context: new Map(context || (parent_component ? parent_component.$$.context : [])),
+      context: new Map(
+        context ||
+          (parent_component
+            ? parent_component.$$.context
+            : [])
+      ),
       // these will be immediately discarded
       on_mount: [],
       before_update: [],
@@ -95,15 +122,33 @@ function create_ssr_component(fn) {
     return html;
   }
   return {
-    render: (props = {}, { $$slots = {}, context = /* @__PURE__ */ new Map() } = {}) => {
+    render: (
+      props = {},
+      {
+        $$slots = {},
+        context = /* @__PURE__ */ new Map()
+      } = {}
+    ) => {
       on_destroy = [];
-      const result = { title: "", head: "", css: /* @__PURE__ */ new Set() };
-      const html = $$render(result, props, {}, $$slots, context);
+      const result = {
+        title: "",
+        head: "",
+        css: /* @__PURE__ */ new Set()
+      };
+      const html = $$render(
+        result,
+        props,
+        {},
+        $$slots,
+        context
+      );
       run_all(on_destroy);
       return {
         html,
         css: {
-          code: Array.from(result.css).map((css) => css.code).join("\n"),
+          code: Array.from(result.css)
+            .map((css) => css.code)
+            .join("\n"),
           map: null
           // TODO
         },

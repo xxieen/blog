@@ -3,13 +3,19 @@ function resolve(base, path) {
   if (path[0] === "/" && path[1] === "/") return path;
   let url = new URL(base, internal);
   url = new URL(path, url);
-  return url.protocol === internal.protocol ? url.pathname + url.search + url.hash : url.href;
+  return url.protocol === internal.protocol
+    ? url.pathname + url.search + url.hash
+    : url.href;
 }
 function normalize_path(path, trailing_slash) {
-  if (path === "/" || trailing_slash === "ignore") return path;
+  if (path === "/" || trailing_slash === "ignore")
+    return path;
   if (trailing_slash === "never") {
     return path.endsWith("/") ? path.slice(0, -1) : path;
-  } else if (trailing_slash === "always" && !path.endsWith("/")) {
+  } else if (
+    trailing_slash === "always" &&
+    !path.endsWith("/")
+  ) {
     return path + "/";
   }
   return path;
@@ -23,22 +29,23 @@ function decode_params(params) {
   }
   return params;
 }
-const tracked_url_properties = (
+const tracked_url_properties =
   /** @type {const} */
-  [
-    "href",
-    "pathname",
-    "search",
-    "toString",
-    "toJSON"
-  ]
-);
-function make_trackable(url, callback, search_params_callback) {
+  ["href", "pathname", "search", "toString", "toJSON"];
+function make_trackable(
+  url,
+  callback,
+  search_params_callback
+) {
   const tracked = new URL(url);
   Object.defineProperty(tracked, "searchParams", {
     value: new Proxy(tracked.searchParams, {
       get(obj, key) {
-        if (key === "get" || key === "getAll" || key === "has") {
+        if (
+          key === "get" ||
+          key === "getAll" ||
+          key === "has"
+        ) {
           return (param) => {
             search_params_callback(param);
             return obj[key](param);
@@ -46,7 +53,9 @@ function make_trackable(url, callback, search_params_callback) {
         }
         callback();
         const value = Reflect.get(obj, key);
-        return typeof value === "function" ? value.bind(obj) : value;
+        return typeof value === "function"
+          ? value.bind(obj)
+          : value;
       }
     }),
     enumerable: true,
@@ -63,7 +72,11 @@ function make_trackable(url, callback, search_params_callback) {
     });
   }
   {
-    tracked[Symbol.for("nodejs.util.inspect.custom")] = (depth, opts, inspect) => {
+    tracked[Symbol.for("nodejs.util.inspect.custom")] = (
+      depth,
+      opts,
+      inspect
+    ) => {
       return inspect(url, opts);
     };
   }
@@ -87,14 +100,20 @@ function disable_search(url) {
   for (const property of ["search", "searchParams"]) {
     Object.defineProperty(url, property, {
       get() {
-        throw new Error(`Cannot access url.${property} on a page with prerendering enabled`);
+        throw new Error(
+          `Cannot access url.${property} on a page with prerendering enabled`
+        );
       }
     });
   }
 }
 function allow_nodejs_console_log(url) {
   {
-    url[Symbol.for("nodejs.util.inspect.custom")] = (depth, opts, inspect) => {
+    url[Symbol.for("nodejs.util.inspect.custom")] = (
+      depth,
+      opts,
+      inspect
+    ) => {
       return inspect(new URL(url), opts);
     };
   }
@@ -102,15 +121,21 @@ function allow_nodejs_console_log(url) {
 const DATA_SUFFIX = "/__data.json";
 const HTML_DATA_SUFFIX = ".html__data.json";
 function has_data_suffix(pathname) {
-  return pathname.endsWith(DATA_SUFFIX) || pathname.endsWith(HTML_DATA_SUFFIX);
+  return (
+    pathname.endsWith(DATA_SUFFIX) ||
+    pathname.endsWith(HTML_DATA_SUFFIX)
+  );
 }
 function add_data_suffix(pathname) {
-  if (pathname.endsWith(".html")) return pathname.replace(/\.html$/, HTML_DATA_SUFFIX);
+  if (pathname.endsWith(".html"))
+    return pathname.replace(/\.html$/, HTML_DATA_SUFFIX);
   return pathname.replace(/\/$/, "") + DATA_SUFFIX;
 }
 function strip_data_suffix(pathname) {
   if (pathname.endsWith(HTML_DATA_SUFFIX)) {
-    return pathname.slice(0, -HTML_DATA_SUFFIX.length) + ".html";
+    return (
+      pathname.slice(0, -HTML_DATA_SUFFIX.length) + ".html"
+    );
   }
   return pathname.slice(0, -DATA_SUFFIX.length);
 }
@@ -120,8 +145,15 @@ function validator(expected) {
     for (const key in module) {
       if (key[0] === "_" || expected.has(key)) continue;
       const values = [...expected.values()];
-      const hint = hint_for_supported_files(key, file?.slice(file.lastIndexOf("."))) ?? `valid exports are ${values.join(", ")}, or anything with a '_' prefix`;
-      throw new Error(`Invalid export '${key}'${file ? ` in ${file}` : ""} (${hint})`);
+      const hint =
+        hint_for_supported_files(
+          key,
+          file?.slice(file.lastIndexOf("."))
+        ) ??
+        `valid exports are ${values.join(", ")}, or anything with a '_' prefix`;
+      throw new Error(
+        `Invalid export '${key}'${file ? ` in ${file}` : ""} (${hint})`
+      );
     }
   }
   return validate;
@@ -155,9 +187,18 @@ const valid_layout_exports = /* @__PURE__ */ new Set([
   "trailingSlash",
   "config"
 ]);
-const valid_page_exports = /* @__PURE__ */ new Set([...valid_layout_exports, "entries"]);
-const valid_layout_server_exports = /* @__PURE__ */ new Set([...valid_layout_exports]);
-const valid_page_server_exports = /* @__PURE__ */ new Set([...valid_layout_server_exports, "actions", "entries"]);
+const valid_page_exports = /* @__PURE__ */ new Set([
+  ...valid_layout_exports,
+  "entries"
+]);
+const valid_layout_server_exports = /* @__PURE__ */ new Set(
+  [...valid_layout_exports]
+);
+const valid_page_server_exports = /* @__PURE__ */ new Set([
+  ...valid_layout_server_exports,
+  "actions",
+  "entries"
+]);
 const valid_server_exports = /* @__PURE__ */ new Set([
   "GET",
   "POST",
@@ -172,11 +213,19 @@ const valid_server_exports = /* @__PURE__ */ new Set([
   "config",
   "entries"
 ]);
-const validate_layout_exports = validator(valid_layout_exports);
+const validate_layout_exports = validator(
+  valid_layout_exports
+);
 const validate_page_exports = validator(valid_page_exports);
-const validate_layout_server_exports = validator(valid_layout_server_exports);
-const validate_page_server_exports = validator(valid_page_server_exports);
-const validate_server_exports = validator(valid_server_exports);
+const validate_layout_server_exports = validator(
+  valid_layout_server_exports
+);
+const validate_page_server_exports = validator(
+  valid_page_server_exports
+);
+const validate_server_exports = validator(
+  valid_server_exports
+);
 export {
   add_data_suffix as a,
   decode_pathname as b,
