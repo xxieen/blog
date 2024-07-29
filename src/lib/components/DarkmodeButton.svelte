@@ -3,7 +3,6 @@
   import { slide } from "svelte/transition";
   import MoonIcon from "./svg/MoonIcon.svelte";
   import SunIcon from "./svg/SunIcon.svelte";
-
   let inTransition = {
     duration: 400,
     delay: 500

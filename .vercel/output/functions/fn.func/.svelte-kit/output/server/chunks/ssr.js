@@ -1,4 +1,5 @@
-function noop() {}
+function noop() {
+}
 function run(fn) {
   return fn();
 }
@@ -8,12 +9,11 @@ function blank_object() {
 function run_all(fns) {
   fns.forEach(run);
 }
+function is_function(thing) {
+  return typeof thing === "function";
+}
 function safe_not_equal(a, b) {
-  return a != a
-    ? b == b
-    : a !== b ||
-        (a && typeof a === "object") ||
-        typeof a === "function";
+  return a != a ? b == b : a !== b || a && typeof a === "object" || typeof a === "function";
 }
 function subscribe(store, ...callbacks) {
   if (store == null) {
@@ -23,19 +23,20 @@ function subscribe(store, ...callbacks) {
     return noop;
   }
   const unsub = store.subscribe(...callbacks);
-  return unsub.unsubscribe
-    ? () => unsub.unsubscribe()
-    : unsub;
+  return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
+}
+function compute_rest_props(props, keys) {
+  const rest = {};
+  keys = new Set(keys);
+  for (const k in props) if (!keys.has(k) && k[0] !== "$") rest[k] = props[k];
+  return rest;
 }
 let current_component;
 function set_current_component(component) {
   current_component = component;
 }
 function get_current_component() {
-  if (!current_component)
-    throw new Error(
-      "Function called outside component initialization"
-    );
+  if (!current_component) throw new Error("Function called outside component initialization");
   return current_component;
 }
 function setContext(key, context) {
@@ -46,9 +47,93 @@ function getContext(key) {
   return get_current_component().$$.context.get(key);
 }
 function ensure_array_like(array_like_or_iterator) {
-  return array_like_or_iterator?.length !== void 0
-    ? array_like_or_iterator
-    : Array.from(array_like_or_iterator);
+  return array_like_or_iterator?.length !== void 0 ? array_like_or_iterator : Array.from(array_like_or_iterator);
+}
+const _boolean_attributes = (
+  /** @type {const} */
+  [
+    "allowfullscreen",
+    "allowpaymentrequest",
+    "async",
+    "autofocus",
+    "autoplay",
+    "checked",
+    "controls",
+    "default",
+    "defer",
+    "disabled",
+    "formnovalidate",
+    "hidden",
+    "inert",
+    "ismap",
+    "loop",
+    "multiple",
+    "muted",
+    "nomodule",
+    "novalidate",
+    "open",
+    "playsinline",
+    "readonly",
+    "required",
+    "reversed",
+    "selected"
+  ]
+);
+const boolean_attributes = /* @__PURE__ */ new Set([..._boolean_attributes]);
+const invalid_attribute_name_character = /[\s'">/=\u{FDD0}-\u{FDEF}\u{FFFE}\u{FFFF}\u{1FFFE}\u{1FFFF}\u{2FFFE}\u{2FFFF}\u{3FFFE}\u{3FFFF}\u{4FFFE}\u{4FFFF}\u{5FFFE}\u{5FFFF}\u{6FFFE}\u{6FFFF}\u{7FFFE}\u{7FFFF}\u{8FFFE}\u{8FFFF}\u{9FFFE}\u{9FFFF}\u{AFFFE}\u{AFFFF}\u{BFFFE}\u{BFFFF}\u{CFFFE}\u{CFFFF}\u{DFFFE}\u{DFFFF}\u{EFFFE}\u{EFFFF}\u{FFFFE}\u{FFFFF}\u{10FFFE}\u{10FFFF}]/u;
+function spread(args, attrs_to_add) {
+  const attributes = Object.assign({}, ...args);
+  if (attrs_to_add) {
+    const classes_to_add = attrs_to_add.classes;
+    const styles_to_add = attrs_to_add.styles;
+    if (classes_to_add) {
+      if (attributes.class == null) {
+        attributes.class = classes_to_add;
+      } else {
+        attributes.class += " " + classes_to_add;
+      }
+    }
+    if (styles_to_add) {
+      if (attributes.style == null) {
+        attributes.style = style_object_to_string(styles_to_add);
+      } else {
+        attributes.style = style_object_to_string(
+          merge_ssr_styles(attributes.style, styles_to_add)
+        );
+      }
+    }
+  }
+  let str = "";
+  Object.keys(attributes).forEach((name) => {
+    if (invalid_attribute_name_character.test(name)) return;
+    const value = attributes[name];
+    if (value === true) str += " " + name;
+    else if (boolean_attributes.has(name.toLowerCase())) {
+      if (value) str += " " + name;
+    } else if (value != null) {
+      str += ` ${name}="${value}"`;
+    }
+  });
+  return str;
+}
+function merge_ssr_styles(style_attribute, style_directive) {
+  const style_object = {};
+  for (const individual_style of style_attribute.split(";")) {
+    const colon_index = individual_style.indexOf(":");
+    const name = individual_style.slice(0, colon_index).trim();
+    const value = individual_style.slice(colon_index + 1).trim();
+    if (!name) continue;
+    style_object[name] = value;
+  }
+  for (const name in style_directive) {
+    const value = style_directive[name];
+    if (value) {
+      style_object[name] = value;
+    } else {
+      delete style_object[name];
+    }
+  }
+  return style_object;
 }
 const ATTR_REGEX = /[&"]/g;
 const CONTENT_REGEX = /[&<]/g;
@@ -61,16 +146,21 @@ function escape(value, is_attr = false) {
   while (pattern.test(str)) {
     const i = pattern.lastIndex - 1;
     const ch = str[i];
-    escaped +=
-      str.substring(last, i) +
-      (ch === "&"
-        ? "&amp;"
-        : ch === '"'
-          ? "&quot;"
-          : "&lt;");
+    escaped += str.substring(last, i) + (ch === "&" ? "&amp;" : ch === '"' ? "&quot;" : "&lt;");
     last = i + 1;
   }
   return escaped + str.substring(last);
+}
+function escape_attribute_value(value) {
+  const should_escape = typeof value === "string" || value && typeof value === "object";
+  return should_escape ? escape(value, true) : value;
+}
+function escape_object(obj) {
+  const result = {};
+  for (const key in obj) {
+    result[key] = escape_attribute_value(obj[key]);
+  }
+  return result;
 }
 function each(items, fn) {
   items = ensure_array_like(items);
@@ -94,22 +184,11 @@ function validate_component(component, name) {
 }
 let on_destroy;
 function create_ssr_component(fn) {
-  function $$render(
-    result,
-    props,
-    bindings,
-    slots,
-    context
-  ) {
+  function $$render(result, props, bindings, slots, context) {
     const parent_component = current_component;
     const $$ = {
       on_destroy,
-      context: new Map(
-        context ||
-          (parent_component
-            ? parent_component.$$.context
-            : [])
-      ),
+      context: new Map(context || (parent_component ? parent_component.$$.context : [])),
       // these will be immediately discarded
       on_mount: [],
       before_update: [],
@@ -122,33 +201,15 @@ function create_ssr_component(fn) {
     return html;
   }
   return {
-    render: (
-      props = {},
-      {
-        $$slots = {},
-        context = /* @__PURE__ */ new Map()
-      } = {}
-    ) => {
+    render: (props = {}, { $$slots = {}, context = /* @__PURE__ */ new Map() } = {}) => {
       on_destroy = [];
-      const result = {
-        title: "",
-        head: "",
-        css: /* @__PURE__ */ new Set()
-      };
-      const html = $$render(
-        result,
-        props,
-        {},
-        $$slots,
-        context
-      );
+      const result = { title: "", head: "", css: /* @__PURE__ */ new Set() };
+      const html = $$render(result, props, {}, $$slots, context);
       run_all(on_destroy);
       return {
         html,
         css: {
-          code: Array.from(result.css)
-            .map((css) => css.code)
-            .join("\n"),
+          code: Array.from(result.css).map((css) => css.code).join("\n"),
           map: null
           // TODO
         },
@@ -163,16 +224,25 @@ function add_attribute(name, value, boolean) {
   const assignment = `="${escape(value, true)}"`;
   return ` ${name}${assignment}`;
 }
+function style_object_to_string(style_object) {
+  return Object.keys(style_object).filter((key) => style_object[key] != null && style_object[key] !== "").map((key) => `${key}: ${escape_attribute_value(style_object[key])};`).join(" ");
+}
 export {
   add_attribute as a,
   subscribe as b,
   create_ssr_component as c,
-  safe_not_equal as d,
+  compute_rest_props as d,
   escape as e,
-  each as f,
+  spread as f,
   getContext as g,
+  escape_object as h,
+  escape_attribute_value as i,
+  each as j,
+  safe_not_equal as k,
+  is_function as l,
   missing_component as m,
   noop as n,
+  run_all as r,
   setContext as s,
   validate_component as v
 };
