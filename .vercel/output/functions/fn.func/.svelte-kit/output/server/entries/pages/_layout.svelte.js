@@ -176,7 +176,7 @@ const Layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   data.pathname;
   return `${validate_component(ThemeInitializer, "ThemeInitializer").$$render($$result, {}, {}, {
     default: () => {
-      return `${validate_component(MainHeader, "MainHeader").$$render($$result, {}, {}, {})} <main class="pt-24 max-w-5xl mx-auto">${slots.default ? slots.default({}) : ``}</main>`;
+      return `${validate_component(MainHeader, "MainHeader").$$render($$result, {}, {}, {})} <main class="mx-auto max-w-5xl pt-24">${slots.default ? slots.default({}) : ``}</main>`;
     }
   })}`;
 });

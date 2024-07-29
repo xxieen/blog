@@ -11,14 +11,14 @@
 </script>
 
 <ThemeInitializer>
-  <MainHeader />
+  <MainHeader></MainHeader>
   {#key pagePath}
     <main
-      in:fly={{ y: -15, duration: 200, delay: 300 }}
-      out:fly={{ y: 15, duration: 200 }}
-      class="pt-24 max-w-5xl mx-auto"
+      in:fly={{ y: -15, duration: 200, delay: 0 }}
+      out:fly={{ y: 15 }}
+      class="mx-auto max-w-5xl pt-24"
     >
-      <slot />
+      <slot></slot>
     </main>
   {/key}
 </ThemeInitializer>
