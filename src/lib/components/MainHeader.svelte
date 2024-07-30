@@ -19,7 +19,6 @@
 
     <div class="flex items-center space-x-1">
       <DarkmodeButton />
-
       <IconLink
         href="https://www.youtube.com/@moomincare"
         target="_blank"
