@@ -2,6 +2,17 @@
 	"version": 3,
 	"routes": [
 		{
+			"src": "/blog/posts/test",
+			"dest": "/blog/posts/test/"
+		},
+		{
+			"src": "/blog/posts/test/",
+			"status": 308,
+			"headers": {
+				"Location": "/blog/posts/test"
+			}
+		},
+		{
 			"src": "/blog/posts/terminal-setup",
 			"dest": "/blog/posts/terminal-setup/"
 		},
@@ -62,6 +73,9 @@
 	"overrides": {
 		"index.html": {
 			"path": ""
+		},
+		"blog/posts/test.html": {
+			"path": "blog/posts/test"
 		},
 		"blog/posts/terminal-setup.html": {
 			"path": "blog/posts/terminal-setup"
