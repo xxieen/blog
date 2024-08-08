@@ -2,6 +2,17 @@
 	"version": 3,
 	"routes": [
 		{
+			"src": "/blog/posts/math",
+			"dest": "/blog/posts/math/"
+		},
+		{
+			"src": "/blog/posts/math/",
+			"status": 308,
+			"headers": {
+				"Location": "/blog/posts/math"
+			}
+		},
+		{
 			"src": "/blog/posts/test",
 			"dest": "/blog/posts/test/"
 		},
@@ -73,6 +84,9 @@
 	"overrides": {
 		"index.html": {
 			"path": ""
+		},
+		"blog/posts/math.html": {
+			"path": "blog/posts/math"
 		},
 		"blog/posts/test.html": {
 			"path": "blog/posts/test"
