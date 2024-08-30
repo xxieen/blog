@@ -24,28 +24,6 @@
 			}
 		},
 		{
-			"src": "/blog/posts/test",
-			"dest": "/blog/posts/test/"
-		},
-		{
-			"src": "/blog/posts/test/",
-			"status": 308,
-			"headers": {
-				"Location": "/blog/posts/test"
-			}
-		},
-		{
-			"src": "/blog/posts/terminal-setup",
-			"dest": "/blog/posts/terminal-setup/"
-		},
-		{
-			"src": "/blog/posts/terminal-setup/",
-			"status": 308,
-			"headers": {
-				"Location": "/blog/posts/terminal-setup"
-			}
-		},
-		{
 			"src": "/blog/posts/tmux-setup",
 			"dest": "/blog/posts/tmux-setup/"
 		},
@@ -101,12 +79,6 @@
 		},
 		"blog/posts/math.html": {
 			"path": "blog/posts/math"
-		},
-		"blog/posts/test.html": {
-			"path": "blog/posts/test"
-		},
-		"blog/posts/terminal-setup.html": {
-			"path": "blog/posts/terminal-setup"
 		},
 		"blog/posts/tmux-setup.html": {
 			"path": "blog/posts/tmux-setup"
