@@ -2,7 +2,7 @@
 title: "n皇后问题的解法"
 imgUrl: "/post-images/nQueue.webp"
 # youtubeId: "CF1tMjvHDRA"
-publishedAt: "2024-7-28"
+publishedAt: "2024-8-31"
 summary: "n皇后问题的位运算解决方法"
 ---
 
