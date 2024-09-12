@@ -33,7 +33,7 @@ C++的程序由一系列的表达式（expressions）构成。表达式是运算
 
 如果你使用gcc编译器，它的报错如下：
 
-```
+```cpp
 error: lvalue required as left operand of assignment
 ```
 
@@ -96,7 +96,7 @@ C++中对于值类别的定义也经历一些变化。从C++11标准开始，值
 
 我们可以通过下面这个图来记忆五种类别的关系：
 
-![](value_cat.png)
+![image1](/post-images/value_cat.png)
 
 每种值类别都有其关联的性质，这些性质决定了表达式可以如何使用。
 
@@ -297,11 +297,11 @@ public: X(const X& other) // copy constructor { m_data = new int[other.m_size]; 
 
 拷贝意味着会将原先的数据复制一份新的出来。这么做的好处是：新的数据与原先的数据是独立的两份，修改其中一个不会影响另外一个。但坏处是：这么做会消耗运算时间和存储空间。例如：你有一个包含了$10^{10}$个元素的集合数据，将其拷贝一份就不那么轻松了。
 
-![image](post-images/copy.png)
+![image2](/post-images/copy.png)
 
 而移动操作则轻量了很多，因为它不涉及新数据的产生，仅仅是将原先的数据更改拥有者。
 
-![image](post-images/move.png)
+![image3](/post-images/move.png)
 
 在C++11中，你可以为类定义移动构造函数（move constructor）和移动赋值（move assignment）运算符。它们看起来是这样：
 
@@ -470,7 +470,7 @@ baz<int&>(ii);
 
 URef的定义如下：
 
-![](post-images/uref.png)
+![image4](/post-images/uref.png)
 
 就是说：只有声明为`T&&`且T需要推导的情况下，才是URef。例如`void f(Widget&& w);`，由于不需要推导，所以它不是URef。
 
@@ -560,7 +560,7 @@ int& forward(int& t) noexcept { return static_cast<int&>(t); }
 
 这个过程通过语言来描述很啰嗦，所以下面通过一幅图来说明整个过程，也希望帮你对比记忆：
 
-![image](post-images/forward.png)
+![image5](/post-images/forward.png)
 
 ## 参考资料与推荐读物
 

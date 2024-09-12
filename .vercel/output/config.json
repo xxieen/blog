@@ -2,6 +2,17 @@
 	"version": 3,
 	"routes": [
 		{
+			"src": "/blog/posts/value_type",
+			"dest": "/blog/posts/value_type/"
+		},
+		{
+			"src": "/blog/posts/value_type/",
+			"status": 308,
+			"headers": {
+				"Location": "/blog/posts/value_type"
+			}
+		},
+		{
 			"src": "/blog/posts/n皇后问题",
 			"dest": "/blog/posts/n皇后问题/"
 		},
@@ -73,6 +84,9 @@
 	"overrides": {
 		"index.html": {
 			"path": ""
+		},
+		"blog/posts/value_type.html": {
+			"path": "blog/posts/value_type"
 		},
 		"blog/posts/n皇后问题.html": {
 			"path": "blog/posts/n皇后问题"
