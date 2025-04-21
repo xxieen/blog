@@ -9,15 +9,15 @@
 code[class*="language-"],
 pre[class*="language-"] {
   color: #d6deeb;
-  font-family: Consolas, Monaco, "Andale Mono",
-    "Ubuntu Mono", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
   line-height: 1.5;
-  font-size: 1em;
+  font-size: 0.9em;
+  padding: 1em;
 
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -27,6 +27,8 @@ pre[class*="language-"] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+  
+  border-radius: 16px; /* Apple-style rounded corners */
 }
 
 pre[class*="language-"]::-moz-selection,
@@ -54,21 +56,50 @@ code[class*="language-"] ::selection {
 
 /* Code blocks */
 pre[class*="language-"] {
-  padding: 1em;
-  margin: 0.5em 0;
+  margin: 1.5em 0;
   overflow: auto;
+  position: relative; /* Important for copy button positioning */
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
   color: white;
-  background: theme("colors.gray.800");
+  background: rgba(30, 32, 44, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1); 
 }
 
+/* Inline code */
 :not(pre) > code[class*="language-"] {
-  padding: 0.1em;
+  padding: 0.2em 0.5em;
   border-radius: 0.3em;
   white-space: normal;
+}
+
+/* Make sure the copy button is visible */
+.relative {
+  position: relative;
+}
+
+.relative pre {
+  padding-top: 2.5rem; /* Extra space at the top for the copy button */
+}
+
+.relative button {
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  z-index: 10;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.relative button:hover {
+  opacity: 1;
 }
 
 .token.comment,

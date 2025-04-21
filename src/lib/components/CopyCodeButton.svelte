@@ -20,15 +20,17 @@
 <button
   bind:this={copyButton}
   on:click={handleClick}
-  class={`absolute right-2 top-2 rounded-md p-1 shadow-md ${
+  class={`absolute right-2 top-2 rounded-full p-1.5 transition-all duration-200 backdrop-blur-md ${
     showCheckmark
-      ? "bg-green-900"
-      : "bg-gray-700 hover:bg-gray-600"
+      ? "bg-success/90 shadow-md"
+      : "bg-base-200/80 hover:bg-base-200/95 shadow-sm hover:shadow-md"
   }`}
+  aria-label="Copy code to clipboard"
+  title="Copy code to clipboard"
 >
   {#if showCheckmark}
-    <CheckIcon class="h-6 w-6 fill-green-300" />
+    <CheckIcon class="h-5 w-5 text-white" />
   {:else}
-    <CopyIcon class="h-6 w-6 fill-white" />
+    <CopyIcon class="h-5 w-5 text-base-content/80" />
   {/if}
 </button>
