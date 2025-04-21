@@ -58,19 +58,6 @@
 </script>
 
 <section class="relative overflow-hidden px-4 py-16">
-  <div class="absolute inset-0 -z-10 overflow-hidden">
-    <!-- Apple-style gradient background with blur -->
-    <div
-      class="filter absolute -right-[30vh] -top-[30vh] h-[70vh] w-[70vh] rounded-full bg-blue-200/30 mix-blend-normal blur-[80px] dark:bg-blue-900/20"
-    ></div>
-    <div
-      class="filter absolute left-[20vh] top-[20vh] h-[50vh] w-[50vh] rounded-full bg-purple-100/30 mix-blend-normal blur-[80px] dark:bg-purple-900/20"
-    ></div>
-    <div
-      class="filter absolute -bottom-[30vh] -left-[30vh] h-[70vh] w-[70vh] rounded-full bg-blue-100/20 mix-blend-normal blur-[80px] dark:bg-blue-900/20"
-    ></div>
-  </div>
-
   <div class="relative z-0 mx-auto max-w-3xl text-center">
     <div
       in:scale={{ duration: 500, delay: 100 }}
