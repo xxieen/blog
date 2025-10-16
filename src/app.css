@@ -5,57 +5,90 @@
 /* 全局字体设置 - 采用Apple设计风格 */
 @layer base {
   html {
-    font-feature-settings: "liga" 1, "calt" 1; /* 连字和上下文替换优化 */
+    font-feature-settings:
+      "liga" 1,
+      "calt" 1; /* 连字和上下文替换优化 */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
-  
+
   /* 平滑滚动效果 */
   html {
     scroll-behavior: smooth;
   }
-  
+
   /* 更优雅的选择效果 */
   ::selection {
-    background-color: rgba(0, 113, 227, 0.2); /* Apple blue with 20% opacity */
+    background-color: rgba(
+      0,
+      113,
+      227,
+      0.2
+    ); /* Apple blue with 20% opacity */
   }
 }
 
 /* 高级动画效果 */
 @keyframes floatUp {
-  0% { transform: translateY(10px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.01); } /* 更微妙的脉动效果 */
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.01);
+  } /* 更微妙的脉动效果 */
 }
 
 @keyframes shimmer {
-  0% { background-position: -100% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 /* 光标闪烁动画 - 类似Apple Terminal的效果 */
 @keyframes cursorBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 /* Custom Utilities */
 .animate-float-up {
-  animation: floatUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards; /* Apple风格的缓动函数 */
+  animation: floatUp 0.65s cubic-bezier(0.16, 1, 0.3, 1)
+    forwards; /* Apple风格的缓动函数 */
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.65s cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
 }
 
 .animate-pulse-slow {
@@ -79,7 +112,7 @@
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.03) 20%, 
+    rgba(255, 255, 255, 0.03) 20%,
     rgba(255, 255, 255, 0.06) 60%,
     rgba(255, 255, 255, 0) 100%
   );
@@ -100,29 +133,32 @@
   line-height: 1.5; /* Apple更喜欢紧凑的行高 */
 }
 
-.prose h1, .prose h2, .prose h3, .prose h4 {
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
   font-weight: 600; /* Apple偏好用semibold而非bold */
   letter-spacing: -0.02em; /* 微妙字间距调整，像Apple一样 */
 }
 
 /* 代码块样式 - 高级毛玻璃效果 */
 .prose pre {
-  background-color: theme('colors.base-300/60');
+  background-color: theme("colors.base-300/60");
   backdrop-filter: blur(12px); /* 增强毛玻璃效果 */
   -webkit-backdrop-filter: blur(12px); /* Safari兼容 */
   border-radius: 16px; /* 标准Apple圆角 */
-  padding: theme('spacing.6');
-  box-shadow: 
+  padding: theme("spacing.6");
+  box-shadow:
     0 8px 30px rgba(0, 0, 0, 0.07),
     0 1px 3px rgba(0, 0, 0, 0.05),
     inset 0 0 0 1px rgba(255, 255, 255, 0.1); /* Apple风格内阴影边框 */
-  margin: theme('spacing.6') 0;
+  margin: theme("spacing.6") 0;
   overflow: hidden; /* 确保内容不会溢出圆角 */
 }
 
 .dark .prose pre {
   background-color: rgba(30, 30, 33, 0.75);
-  box-shadow: 
+  box-shadow:
     0 10px 40px rgba(0, 0, 0, 0.15),
     0 2px 6px rgba(0, 0, 0, 0.1),
     inset 0 0 0 1px rgba(255, 255, 255, 0.05);
@@ -131,27 +167,33 @@
 /* 图片样式 - 精致圆角和阴影 */
 .prose img {
   border-radius: 16px; /* 标准Apple圆角 */
-  margin: theme('spacing.6') 0;
-  box-shadow: 
+  margin: theme("spacing.6") 0;
+  box-shadow:
     0 12px 25px rgba(0, 0, 0, 0.1),
     0 3px 6px rgba(0, 0, 0, 0.05); /* 双层阴影效果 */
   transform: translateZ(0); /* 启用GPU加速 */
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .prose img:hover {
   transform: translateY(-2px) scale(1.005);
-  box-shadow: 
+  box-shadow:
     0 20px 35px rgba(0, 0, 0, 0.12),
     0 5px 12px rgba(0, 0, 0, 0.08);
 }
 
 /* 苹果风格的毛玻璃卡片 - 改进版 */
 .glass-card {
-  background: rgba(255, 255, 255, 0.65); /* Apple偏好较高不透明度 */
+  background: rgba(
+    255,
+    255,
+    255,
+    0.65
+  ); /* Apple偏好较高不透明度 */
   border-radius: 16px; /* 标准Apple圆角 */
-  box-shadow: 
+  box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.04),
     0 1px 5px rgba(0, 0, 0, 0.02),
     inset 0 0 0 0.5px rgba(255, 255, 255, 0.5); /* Apple特有的内嵌边框 */
@@ -164,7 +206,7 @@
 /* 深色模式下的毛玻璃卡片 */
 .dark .glass-card {
   background: rgba(28, 28, 30, 0.8); /* Apple暗色主题颜色 */
-  box-shadow: 
+  box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.1),
     0 1px 5px rgba(0, 0, 0, 0.05),
     inset 0 0 0 0.5px rgba(255, 255, 255, 0.1);
@@ -172,7 +214,7 @@
 
 /* 苹果风格卡片悬停效果 - 改进版 */
 .apple-card {
-  transition: 
+  transition:
     all 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, box-shadow; /* 性能优化 */
@@ -181,13 +223,14 @@
 
 .apple-card:hover {
   transform: translateY(-3px) scale(1.005); /* 微妙的缩放 */
-  box-shadow: 
+  box-shadow:
     0 24px 45px rgba(0, 0, 0, 0.08),
     0 4px 10px rgba(0, 0, 0, 0.04); /* 更精细的阴影 */
 }
 
 /* 水平分割线 - Apple风格 */
-hr, .divider {
+hr,
+.divider {
   margin-top: 2rem;
   margin-bottom: 2rem;
   border: none;
@@ -195,7 +238,8 @@ hr, .divider {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.dark hr, .dark .divider {
+.dark hr,
+.dark .divider {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
@@ -210,8 +254,8 @@ hr, .divider {
   transition-property: all;
   transition-duration: 300ms;
   transform: translateZ(0);
-  box-shadow: 
-    0 1px 2px rgba(0, 0, 0, 0.05), 
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.05),
     inset 0 0 0 1px rgba(255, 255, 255, 0.15);
   letter-spacing: -0.01em; /* Apple字体间距 */
   -webkit-tap-highlight-color: transparent; /* 移除移动点击高亮 */
@@ -237,7 +281,7 @@ hr, .divider {
 }
 
 .link-apple::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
@@ -286,7 +330,8 @@ pre code {
 }
 
 /* 自定义按钮过渡效果 */
-button, .btn {
+button,
+.btn {
   -webkit-tap-highlight-color: transparent;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
